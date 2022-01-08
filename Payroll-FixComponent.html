@@ -14,7 +14,7 @@
 
     <div class="container my-5">
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-10">
                 <div class="card rouded shadow">
                     <div class="card-header">
                         <div class="row">
@@ -22,56 +22,77 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div class="col-6">
-                                <div class="row mb-2">
-                                    <div class="col-5">
-                                        <label for="recipient-name" class="col-form-label">Employee ID</label>
+                        <form>
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <label for="recipient-name" class="col-form-label">Employee ID</label>
+                                        </div>
+                                        <div class="col-7">
+                                            <select class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example">
+                                                <option selected>--Cari Nik--</option>
+                                                <option value="BPJS">HN</option>
+                                                <option value="THR">JZ</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-7">
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>--Cari Nik--</option>
-                                            <option value="BPJS">BPJS</option>
-                                            <option value="THR">THR</option>
-                                        </select>
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <label for="recipient-name" class="col-form-label">Mutation Date</label>
+                                        </div>
+                                        <div class="col-7">
+                                            <input type="date" class="form-control" id="recipient-name">
+                                        </div>
                                     </div>
+
                                 </div>
-                                <div class="row mb-2">
-                                    <div class="col-5">
-                                        <label for="recipient-name" class="col-form-label">Mutation Date</label>
+                                <div class="col-6">
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <label for="recipient-name" class="col-form-label">Salary Group</label>
+                                        </div>
+                                        <div class="col-7">
+                                            <select class="form-select form-select-sm"
+                                                aria-label=".form-select-sm example" onChange="myNewFunction(this);">
+                                                <option selected>--Cari Grup--
+                                                </option>
+                                                <option value=" BPJS">G1</option>
+                                                <option value="THR">G2</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-7">
-                                        <input type="date" class="form-control" id="recipient-name">
-                                    </div>
-                                </div>
-                                <div class="row mb-2">
-                                    <div class="col-5">
-                                        <label for="recipient-name" class="col-form-label">Salary Group</label>
-                                    </div>
-                                    <div class="col-7">
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>--Cari Grup--</option>
-                                            <option value="BPJS">G1</option>
-                                            <option value="THR">G2</option>
-                                        </select>
+                                    <div class="row mb-2">
+                                        <div class="col-5">
+                                            <label for="recipient-name" class="col-form-label">Period</label>
+                                        </div>
+                                        <div class="col-7">
+                                            <td><input type="text" class="form-control" id="recipient-name"
+                                                    placeholder="2021-01-0" disabled></td>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <div class="row justify-content-center mt-5">
                             <div class="col-12">
                                 <table class="table">
                                     <thead>
                                         <tr>
-
                                             <th>Code</th>
                                             <th>Description</th>
                                             <th>Value</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id='myTb'>
+
                                     </tbody>
                                 </table>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end me-2">
+                                    <button type="button" class="btn btn-primary">Save</button>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -103,19 +124,38 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script>
-        function myFunction() {
-            // Get the checkbox
-            var checkBox = document.getElementById("myCheck");
-            // Get the output text
-            var text = document.getElementById("myTxt");
+        function myNewFunction(sel) {
+            let a = (sel.options[sel.selectedIndex].text).toLowerCase()
+            let b = document.getElementById("myTb");
+            b.innerHTML = (a == 'g1') ? g1 : g2;
 
-            // If the checkbox is checked, display the output text
-            if (checkBox.checked == true) {
-                document.getElementById("myTxt").disabled = false;
-            } else {
-                document.getElementById("myTxt").disabled = true;
-            }
+
         }
+
+        let g2 = `<tr><td>com021</td>
+                                            <td>Gaji Pokok Gross</td>
+                                            <td><input type="number" class="form-control" id="recipient-name" value="5000000"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>com022</td>
+                                            <td>Transport Gross</td>
+                                            <td><input type="number" class="form-control" id="recipient-name" value="500000"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>com023</td>
+                                            <td>Tj Jabatan</td>
+                                            <td><input type="number" class="form-control" id="recipient-name" value="50000"></td>
+                                        </tr>`;
+
+        let g1 = `<tr><td>com001</td><td>Gaji Pokok Netto</td>
+                                            <td><input type="number" class="form-control" id="recipient-name" value="10000000"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>com002</td>
+                                            <td>Transport Netto</td>
+                                            <td><input type="number" class="form-control" id="recipient-name" value="1000000"></td>
+                                        </tr>
+                                        `;
     </script>
 </body>
 
