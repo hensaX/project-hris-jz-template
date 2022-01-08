@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card rouded shadow">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-10">Fix Component</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <div class="row mb-2">
+                                    <div class="col-5">
+                                        <label for="recipient-name" class="col-form-label">Employee ID</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                            <option selected>--Cari Nik--</option>
+                                            <option value="BPJS">BPJS</option>
+                                            <option value="THR">THR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-5">
+                                        <label for="recipient-name" class="col-form-label">Mutation Date</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="date" class="form-control" id="recipient-name">
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-5">
+                                        <label for="recipient-name" class="col-form-label">Salary Group</label>
+                                    </div>
+                                    <div class="col-7">
+                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                            <option selected>--Cari Grup--</option>
+                                            <option value="BPJS">G1</option>
+                                            <option value="THR">G2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center mt-5">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Code</th>
+                                            <th>Description</th>
+                                            <th>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <div col="8" style="white-space: pre;" class="justify-centercol align-self-center">
+
+        Notes :
+        Table: pymaster
+
+        validasi :
+        1. Default periode active
+        2. Periode harus >= periode active
+        3. bila pilih cash bank semua diable dan kosong.
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        function myFunction() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck");
+            // Get the output text
+            var text = document.getElementById("myTxt");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true) {
+                document.getElementById("myTxt").disabled = false;
+            } else {
+                document.getElementById("myTxt").disabled = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

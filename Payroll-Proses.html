@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="card rouded shadow">
+                    <div class="card-header">
+                        <div class="div row">
+                            <div class="col-10">Salary Process</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+
+                            <div class="row justify-content-center">
+                                <div class="col-4">
+
+                                    <form>
+
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Salary Group</label>
+                                            <div>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option value="G01" selected>G01</option>
+                                                    <option value="G02">G02</option>
+                                                </select>
+                                                <p style="font-size: 0.75em;" class="text-danger">
+                                                    <strong>Periode : 2021-12 | Active.</strong>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Proces ID</label>
+                                            <div>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option value="S01" selected>S01</option>
+                                                    <option value="F01">F01</option>
+                                                    <option value="B01">B01</option>
+                                                </select>
+                                                <p style="font-size: 0.75em;" class="text-danger">
+                                                    <strong>Salary Process.</strong>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="mb-5">
+                                            <label for="recipient-name" class="col-form-label">By EmployeeID:</label>
+
+                                            <div>
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-text">
+                                                        <input class="form-check-input mt-0" type="checkbox" value=""
+                                                            id="myCheck" aria-label="Checkbox for following text input"
+                                                            onclick="myFunction()">
+                                                    </div>
+                                                    <select class="form-select" id="myTxt" disabled>
+                                                        <option selected>Choose NIK...</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="mb-5">
+                                            <button type="button" class="btn btn-primary">Process</button>
+                                            <button type="button" class="btn btn-danger">Undo</button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <div col="8" style="white-space: pre;" class="justify-centercol align-self-center">
+
+        Notes :
+        Jalankan storeprocedure
+        Proses gaji :
+        Call sp_payproc (coid,grupgaji,prosesid,empid,flag)
+
+        Example :
+        1.Proses gaji 1 grup :
+        call sp_payproc
+        ('dmo','g01','s01','','');
+
+        2. Proses gaji 1 orang :
+        call sp_payproc
+        ('dmo','g01','s01','jz','');
+
+        3. Undo 1 grup gaji :
+        call sp_payproc
+        ('dmo','g01','s01','','undo');
+
+        4. Undo 1 orang :
+        call sp_payproc
+        ('dmo','g01','s01','jz','undo');
+
+
+        validasi :
+        1. Proses BY employee tidak bisa di lakukan bila blm proses by group
+        2. langsung ambil periode aktif di pygrup join dengan gmperiod
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+    </script>
+
+    <script>
+        function myFunction() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck");
+            // Get the output text
+            var text = document.getElementById("myTxt");
+
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true) {
+                document.getElementById("myTxt").disabled = false;
+            } else {
+                document.getElementById("myTxt").disabled = true;
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+
+</html>
