@@ -182,7 +182,7 @@
 
     <!-- Start Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog ">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Variable Component</h5>
@@ -191,25 +191,37 @@
                 <div class="modal-body">
                     <form>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="recipient-name" class="col-form-label col-form-label-sm">Component:</label>
-                                <input type="text" class="form-control form-control-sm" id="recipient-name">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>--Component--</option>
+                                    <option value="BPJS">Com001 | Basic Salary</option>
+                                    <option value="THR">Com002 | Transport</option>
+                                </select></td>
+                            </div>
+                            <div class="col-4">
+                                <label for="recipient-name" class="col-form-label col-form-label-sm">Value</label>
+                                <input type="number" class="form-control form-control-sm" id="recipient-name"
+                                    value="5000000">
+
+                            </div>
+                            <div class="col-4">
+                                <label for="recipient-name" class="col-form-label col-form-label-sm">Currency</label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                    <option selected>IDR</option>
                                 </select>
                             </div>
-                            <div class="col-6">
-                                <label for="recipient-name" class="col-form-label col-form-label-sm">EmployeeID:</label>
-                                <input type="text" class="form-control form-control-sm" id="recipient-name"
-                                    placeholder="yyyy-mm-0">
+                            <div class="col-4">
+                                <label for="recipient-name" class="col-form-label col-form-label-sm">Reff No.</label>
+                                <input type="text" class="form-control form-control-sm" id="recipient-name" value=".">
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <label for="recipient-name" class="col-form-label col-form-label-sm">Tax Method</label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option value="gross" selected>Gross</option>
-                                <option value="netto">Netto</option>
-                            </select>
-                        </div>
+                            <div class="col-8">
+                                <label for="recipient-name" class="col-form-label col-form-label-sm">Reff No.</label>
+                                <textarea class="form-control form-control-sm" placeholder="Input Notes Here."
+                                    id="floatingTextarea"></textarea>
+                            </div>
 
+                        </div>
                         <table class="table">
                             <thead>
                                 <tr>
