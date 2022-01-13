@@ -131,31 +131,28 @@
                                 <div class="mb-2">
                                     <label for="recipient-name" class="col-form-label">Salary Grup:</label>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option value="COM001" selected>G01</option>
-                                        <option value="COM002">G02</option>
+                                        <option value="COM001" selected>G01 | Grup Staff</option>
+                                        <option value="COM002">G02 | Grup Manager</option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
                                     <label for="recipient-name" class="col-form-label">Process Code:</label>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option value="COM001" selected>S01</option>
-                                        <option value="COM002">F01</option>
-                                        <option value="COM002">F02</option>
-                                        <option value="COM002">B01</option>
+                                        <option value="COM001" selected>S01 | Salary</option>
+                                        <option value="COM002">F01 | THR01</option>
+                                        <option value="COM002">F02 | THR02</option>
+                                        <option value="COM002">B01 | Bonus01 </option>
                                     </select>
                                 </div>
                                 <div class="mb-2">
                                     <label for="recipient-name" class="col-form-label">Component Code:</label>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option value="COM001" selected>COM001</option>
-                                        <option value="COM002">COM002</option>
+                                        <option value="COM001" selected>COM001 | Basic Salry</option>
+                                        <option value="COM002">COM002 | </option>
                                         <option value="COM003">COM003</option>
                                     </select>
                                 </div>
-                                <div class="mb-2">
-                                    <label for="recipient-name" class="col-form-label">Description:</label>
-                                    <input type="number" class="form-control" id="recipient-name">
-                                </div>
+
                                 <div class="mb-4">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch"
@@ -195,6 +192,9 @@
         1. Salary grup baca table pygrup
         2. Salary Code pymcode grup PAYCODE
         3. Component code baca table pycomp
+        4. Ceklist component Fix.. bila yes isi fixfl =1 bila no isi fixfl =0
+        5. Code component di ambil dari pyformula join dengan pycomp untuk descripiton
+        6. Prosescode ambil dari gmcode
 
 
     </div>
