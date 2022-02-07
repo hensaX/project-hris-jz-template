@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .tree-menu-1st-example ul {
+            padding-left: 0px;
+        }
+
+        .tree-menu-1st-example ul li {
+            list-style-type: none;
+            padding-left: 30px;
+            position: relative;
+            line-height: 2em;
+        }
+
+        .tree-menu-1st-example ul li:before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0 0 0 0px;
+            height: 100%;
+        }
+
+        .tree-menu-1st-example ul li:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 1em;
+            left: 0px;
+            border-top: 1px solid #ccc;
+            border-radius: 0px 0 0 0;
+            width: 20px;
+            height: 100%;
+        }
+
+        .tree-menu-1st-example ul li:last-of-type:before {
+            height: 1em;
+        }
+		
+			/* data untuk onclikc */
+		.caret {
+		  cursor: pointer;
+		  -webkit-user-select: none; /* Safari 3.1+ */
+		  -moz-user-select: none; /* Firefox 2+ */
+		  -ms-user-select: none; /* IE 10+ */
+		  user-select: none;
+		}
+
+		.caret::before {
+		  content: "\25B6";
+		  color: black;
+		  display: inline-block;
+		  margin-right: 6px;
+		}
+
+		.caret-down::before {
+		  -ms-transform: rotate(90deg); /* IE 9 */
+		  -webkit-transform: rotate(90deg); /* Safari */'
+		  transform: rotate(90deg);  
+		  color: blue;
+		}
+
+		.nested {
+		  display: none;
+		}
+
+		.active {
+		  display: block;
+		}
+		
+		
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <button type="button" id="alltree" class="btn btn-primary mb-3" onclick="showAll();">Hide / UnHide All</button>
+                <div class="card rouded shadow">
+                    <div class="card-header">
+                        <div class="div row">
+                            <div class="col-10">Structure Organisation</div>
+
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-8">
+
+
+                                <div class="tree-menu-1st-example" id="myorg">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    </div>
+
+
+
+    <div col="8" style="white-space: pre;" class="justify-centercol align-self-center">
+
+        Notes :
+        Ganti data di javascript dengan api hirarki.
+		nanti otomatis sudah gw buat jadi tree by js function
+
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+		
+		function buatOrg(data, hirar,UL) {
+			 let ttl = hirar.length
+			res = '';
+
+			
+			dataLoop = data.filter((el)=>{
+				return el.codeid.length==(ttl+2) && el.codeid.startsWith(hirar)
+			
+			})
+				
+			if(dataLoop.length!=0){
+				res+=UL
+					dataLoop.forEach((x)=> {	
+						res += '<li>'
+							res+= '<span class="caret">'+x.codeid+' - '+x.descid+'</span>'
+							res+=buatOrg(data,x.codeid,'<ul class="nested">')
+						res += '</li>'
+					})
+				res+='</ul>'
+			}
+		
+			return res
+			
+        };
+
+        let data = [{
+                codeid: "11",
+                descid: "HOTEL DEMO VERSION"
+            },
+            {
+                codeid: "1101",
+                descid: "Admin And General"
+            },
+            {
+                codeid: "110101",
+                descid: "Admin and General"
+            },
+            {
+                codeid: "110102",
+                descid: "Finance & Accounting"
+            },
+            {
+                codeid: "110103",
+                descid: "IT"
+            },
+            {
+                codeid: "1102",
+                descid: "Talent and Culture"
+            },
+            {
+                codeid: "110201",
+                descid: "Talent and Culture"
+            },
+            {
+                codeid: "110202",
+                descid: "Security"
+            },
+            {
+                codeid: "1103",
+                descid: "Sales"
+            },
+            {
+                codeid: "110301",
+                descid: "Sales"
+            },
+            {
+                codeid: "110302",
+                descid: "Reservation"
+            },
+            {
+                codeid: "1104",
+                descid: "Front Office"
+            },
+            {
+                codeid: "110401",
+                descid: "Front Office"
+            },
+            {
+                codeid: "110402",
+                descid: "Reservation"
+            },
+            {
+                codeid: "1105",
+                descid: "House Keeping"
+            },
+            {
+                codeid: "110501",
+                descid: "House Keeping"
+            },
+            {
+                codeid: "110502",
+                descid: "Laundry"
+            },
+            {
+                codeid: "110503",
+                descid: "Public Area"
+            },
+            {
+                codeid: "1106",
+                descid: "Food and Beverage"
+            },
+            {
+                codeid: "110601",
+                descid: "F&B Service"
+            },
+            {
+                codeid: "110602",
+                descid: "F&B Product"
+            },
+            {
+                codeid: "1107",
+                descid: "Technical"
+            },
+            {
+                codeid: "110701",
+                descid: "Engineering"
+            },
+            {
+                codeid: "1108",
+                descid: "Laundry"
+            },
+            {
+                codeid: "110801",
+                descid: "Laundry"
+            },
+            {
+                codeid: "1109",
+                descid: "Marketing"
+            },
+            {
+                codeid: "110901",
+                descid: "Marketing"
+            }
+        ]
+
+		let myorg = document.getElementById("myorg");		
+		let myHtml =buatOrg(data,'','<ul>')
+		//console.log(myHtml)
+		myorg.innerHTML=myHtml
+		
+		
+		let toggler = document.getElementsByClassName("caret");
+		let i;
+
+		for (i = 0; i < toggler.length; i++) {
+		  toggler[i].addEventListener("click", function() {
+		  this.classList.toggle("caret-down");
+			this.parentElement.querySelector(".nested").classList.toggle("active");
+		  });
+		  
+		}
+		
+	function showAll(){
+		let list= document.querySelectorAll(".nested");		
+		for (var i = 0; i < list.length; ++i) {
+ 			  list[i].classList.toggle('active');
+		
+		}
+		
+	}		
+    
+	</script>
+</body>
+
+</html>
