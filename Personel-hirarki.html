@@ -134,7 +134,7 @@
     </script>
     <script>
 		
-		function buatOrg(data, hirar,UL) {
+		function buatOrg(data, hirar='',UL='<ul>') {
 			 let ttl = hirar.length
 			res = '';
 
@@ -270,7 +270,7 @@
         ]
 
 		let myorg = document.getElementById("myorg");		
-		let myHtml =buatOrg(data,'','<ul>')
+		let myHtml =buatOrg(data)
 		//console.log(myHtml)
 		myorg.innerHTML=myHtml
 		
